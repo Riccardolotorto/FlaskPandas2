@@ -8,13 +8,13 @@ def home():
 @app.route('/search', methods = ['GET'])
 def search():
     import pandas as pd
-    import geopandas as gpd
-    gdpRegioni = gpd.read_file('Limiti/Regioni/Reg01012023_g_WGS84.shp')
+    #import geopandas as gpd
+    #gdpRegioni = gpd.read_file('Limiti/Regioni/Reg01012023_g_WGS84.shp')            //prova per leggere un file con geopandas//
     regione = request.args['regione']
     dati_regioni = pd.read_csv('https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-statistici-riferimento/popolazione-istat-regione-range.csv')
     risultato = dati_regioni[dati_regioni['denominazione_regione']==regione.capitalize()]
     if len(risultato) == 0:
-        table = 'Regione non trovata'
+        table = 'Regione non trovata Frocio Lotortus'
     else:
         table = risultato.to_html()
     return render_template('tabella.html', tabella = table)

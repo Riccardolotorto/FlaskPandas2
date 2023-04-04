@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>Covid data</title>
+    </head>
+    <body>
+        <form action="/search" method = "POST">
+            {% for regione in list %}
+                <input type="checkbox" name = "regione" value="{{regione}}">{{regione}}</input> <br>  <!--nel ciclo for creo una variabile regione che assume tutti i valori
+                della lista che contiene tutti i nomi delle regioni e li mostra nella checkbox-->
+            {% endfor %}
+            <p><input type = "submit" value = "Clicca per conoscere i dati" /></p>
+        </form>
+    </body>
+</html>
